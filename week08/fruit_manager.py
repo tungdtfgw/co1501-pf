@@ -49,23 +49,45 @@ def print_menu():
     print('2. Add a fruit')
     print('3. Sell a fruit')
     print('4. Remove fruit')
-    print('5. Exit')
+    print('5. Save to file')
+    print('6. Load from file')
+    print('7. Exit')
+
+def save_fruits():
+    try:
+        with open('fruits.txt', 'w') as f:
+            for i in range(len(products)):
+                f.write(f'{products[i]}:{quantities[i]}\n')
+        print('Fruits saved to file.\n')
+    except FileNotFoundError:
+        print('File not found!')
+
+def load_fruits():
+    products.clear()
+    quantities.clear()
+    try:
+        with open('fruits.txt', 'r') as f:
+            lines = f.readlines()
+            for a_line in lines:
+                fruit, quantity = a_line.strip().split(':')
+                products.append(fruit)
+                quantities.append(int(quantity))
+        print('Fruits loaded from file.\n')
+    except FileNotFoundError:
+        print('File not found!')
 
 def main():
     running = True
     while running:
         print_menu()
         choice = int(input('Enter your choice: '))
-        if choice == 1:
-            show_products()
-        elif choice == 2:
-            add_product()
-        elif choice == 3:
-            shell_product()
-        elif choice == 4:
-            delete_product()
-        elif choice == 5:
-            running = False
+        if choice == 1: show_products()
+        elif choice == 2: add_product()
+        elif choice == 3: shell_product()
+        elif choice == 4: delete_product()
+        elif choice == 5: save_fruits()
+        elif choice == 6: load_fruits()
+        elif choice == 7: running = False
         else:
             print('Invalid choice!')
 

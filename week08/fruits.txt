@@ -1,0 +1,6 @@
+apple:100
+mango:120
+kiwi:80
+lemon:75
+banana:200
+durian:150
