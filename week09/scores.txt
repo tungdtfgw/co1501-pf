@@ -1,0 +1,6 @@
+Alice - 8.5
+Bob - 6.0
+Charlie - 9.0
+David - 4.5
+Emma - 7.5
+Frank - 5.0
